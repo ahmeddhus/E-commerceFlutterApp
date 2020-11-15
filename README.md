@@ -1,6 +1,19 @@
-# store_flutter_app
+# E-commerce Flutter App
 
 A new Flutter application.
+
+
+![](ui/1.png) 
+![](ui/2.png) 
+
+![](ui/3.png) 
+![](ui/4.png) 
+
+![](ui/5.png) 
+![](ui/6.png) 
+
+![](ui/7.png) 
+
 
 ## Getting Started
 
