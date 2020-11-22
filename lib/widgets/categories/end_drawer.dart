@@ -157,6 +157,7 @@ class _EndDrawerState extends State<EndDrawer> {
               SizedBox(
                 width: 16.0,
               ),
+
               Container(
                 width: 20.0,
                 height: 20.0,

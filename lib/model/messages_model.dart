@@ -1,11 +1,14 @@
+import 'dart:ui';
+
 class MessagesModel {
   String contactName;
   String contactMsg;
   String contactImg;
   String msgDate;
+  Color contactColor;
 
-  MessagesModel(
-      this.contactName, this.contactMsg, this.contactImg, this.msgDate);
+  MessagesModel(this.contactName, this.contactMsg, this.contactImg,
+      this.msgDate, this.contactColor);
 }
 
 //A => #ED9E9D

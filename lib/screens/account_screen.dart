@@ -68,11 +68,9 @@ class _AccountScreenState extends State<AccountScreen> {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           color: Style.Colors.itemColor,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-              bottomLeft: Radius.circular(10),
-              bottomRight: Radius.circular(10)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
           boxShadow: [
             BoxShadow(
               color: Colors.black26.withOpacity(0.2),
@@ -187,11 +185,9 @@ class _AccountScreenState extends State<AccountScreen> {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           color: Style.Colors.itemColor,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-              bottomLeft: Radius.circular(10),
-              bottomRight: Radius.circular(10)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
           boxShadow: [
             BoxShadow(
               color: Colors.black26.withOpacity(0.2),
@@ -210,7 +206,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 color: Style.Colors.greyColor,
               ),
               title: Text(
-                'Invite Firends',
+                'Invite Friends',
                 style: TextStyle(
                   color: Style.Colors.whiteColor,
                 ),
@@ -336,11 +332,9 @@ class _AccountScreenState extends State<AccountScreen> {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           color: Style.Colors.itemColor,
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-              bottomLeft: Radius.circular(10),
-              bottomRight: Radius.circular(10)),
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
           boxShadow: [
             BoxShadow(
               color: Colors.black26.withOpacity(0.2),

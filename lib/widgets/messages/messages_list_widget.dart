@@ -8,156 +8,73 @@ class MessagesListWidget extends StatefulWidget {
 }
 
 class _MessagesListWidgetState extends State<MessagesListWidget> {
-  List<MessagesModel> messageModel = [
-    MessagesModel('Smiley\'s Ston', 'Hello Smiley, Is the product available?',
-        'SS', '12:48 PM'),
+  List<MessagesModel> messagesModel = [
+    MessagesModel('Smiley\'s Ston', 'Hello Smiley, Is the product available',
+        'SS', '12:48 PM', Color(0xFFED9E9D)),
+    MessagesModel('Beauty Supplies Store', 'Where\'s your location?', 'BS',
+        '2:13 PM', Color(0xFFF5C677)),
     MessagesModel(
-        'Beauty Supplies Store', 'Where\'s your location?', 'BS', '2:13 PM'),
-    MessagesModel('Loveless Bees', 'Okay, Deal', 'LB', 'Yesterday'),
-    MessagesModel('FSHN Boutique', 'How much?', 'FB', '15 Sep'),
-    MessagesModel('Anna\'s Corner', 'Okay', 'AC', '17 Aug'),
+        'Loveless Bees', 'Okay, Deal', 'LB', 'Yesterday', Color(0xFFBBB9FE)),
+    MessagesModel(
+        'FSHN Boutique', 'How much?', 'FB', '15 Sep', Color(0xFF91E0FB)),
+    MessagesModel('Anna\'s Corner', 'Okay', 'AC', '17 Aug', Color(0xFFAFE4E6)),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            ListTile(
-              leading: _contactImg('${messageModel[0].contactName}', Color(0xFFED9E9D)),
-              title: Text(
-                '${messageModel[0].contactName}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-              subtitle: Text(
-                '${messageModel[0].contactMsg}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-              trailing: Text(
-                '${messageModel[0].msgDate}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-            ),
-            Container(
-                width: MediaQuery.of(context).size.width - 100.0,
-                child: Divider(
-                  color: Style.Colors.greyColor,
-                )),
-            ListTile(
-              leading: _contactImg('${messageModel[1].contactName}', Color(0xFFF5C677)),
-              title: Text(
-                '${messageModel[1].contactName}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-              subtitle: Text(
-                '${messageModel[1].contactMsg}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-              trailing: Text(
-                '${messageModel[1].msgDate}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-            ),
-            Container(
-                width: MediaQuery.of(context).size.width - 100.0,
-                child: Divider(
-                  color: Style.Colors.greyColor,
-                )),
-            ListTile(
-              leading: _contactImg('${messageModel[2].contactName}', Color(0xFFBBB9FE)),
-              title: Text(
-                '${messageModel[2].contactName}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-              subtitle: Text(
-                '${messageModel[2].contactMsg}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-              trailing: Text(
-                '${messageModel[2].msgDate}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-            ),
-            Container(
-                width: MediaQuery.of(context).size.width - 100.0,
-                child: Divider(
-                  color: Style.Colors.greyColor,
-                )),
-            ListTile(
-              leading: _contactImg('${messageModel[3].contactName}', Color(0xFF91E0FB)),
-              title: Text(
-                '${messageModel[0].contactName}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-              subtitle: Text(
-                '${messageModel[3].contactMsg}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-              trailing: Text(
-                '${messageModel[3].msgDate}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-            ),
-            Container(
-                width: MediaQuery.of(context).size.width - 100.0,
-                child: Divider(
-                  color: Style.Colors.greyColor,
-                )),
-            ListTile(
-              leading: _contactImg('${messageModel[4].contactName}', Color(0xFFED9E9D)),
-              title: Text(
-                '${messageModel[4].contactName}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-              subtitle: Text(
-                '${messageModel[4].contactMsg}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-              trailing: Text(
-                '${messageModel[4].msgDate}',
-                style: TextStyle(
-                  color: Style.Colors.whiteColor,
-                ),
-              ),
-            ),
-            Container(
-                width: MediaQuery.of(context).size.width - 100.0,
-                child: Divider(
-                  color: Style.Colors.greyColor,
-                )),
-          ],
+      height: MediaQuery.of(context).size.height,
+      child: Expanded(
+        child: ListView.builder(
+          shrinkWrap: true,
+          itemCount: messagesModel.length,
+          itemBuilder: (BuildContext context, int index) {
+            return _listItem(messagesModel[index]);
+          },
         ),
+      ),
+    );
+  }
+
+  Widget _listItem(MessagesModel model) {
+    return Container(
+      height: 100.0,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          ListTile(
+            leading: _contactImg('${model.contactName}', model.contactColor),
+            title: Text(
+              '${model.contactName}',
+              style: TextStyle(
+                color: Style.Colors.whiteColor,
+              ),
+            ),
+            subtitle: Text(
+              '${model.contactMsg}',
+              style: TextStyle(
+                color: Style.Colors.whiteColor,
+              ),
+            ),
+            trailing: Text(
+              '${model.msgDate}',
+              style: TextStyle(
+                color: Style.Colors.whiteColor,
+              ),
+            ),
+          ),
+          SizedBox(height: 8.0,),
+          Container(
+              width: MediaQuery
+                  .of(context)
+                  .size
+                  .width - 100.0,
+              child: Divider(
+                color: Style.Colors.greyColor,
+                thickness: 1.5,
+              )),
+        ],
       ),
     );
   }
@@ -199,4 +116,5 @@ class _MessagesListWidgetState extends State<MessagesListWidget> {
 
     return initialImg;
   }
+
 }
